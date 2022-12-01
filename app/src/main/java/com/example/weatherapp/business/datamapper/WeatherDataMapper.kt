@@ -18,7 +18,9 @@ object WeatherDataMapper : Mapper<WeatherData, WeatherDataDTO> {
             humidity = source.humidity.toDouble(),
             windSpeed = source.windMPH.toDouble(),
             pressure = source.pressureIn.toDouble(),
-            temp = source.tempF.toDouble()
+            temp = source.tempF.toDouble(),
+            isLoading = false,
+            error = null
         )
     }
 }

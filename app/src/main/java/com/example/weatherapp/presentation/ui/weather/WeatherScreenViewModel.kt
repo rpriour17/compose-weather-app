@@ -20,7 +20,7 @@ class WeatherScreenViewModel @Inject constructor(
     private val locationTrackerImpl: LocationTrackerImpl
 ) : ViewModel() {
 
-    private var state by mutableStateOf(WeatherData(
+    var state by mutableStateOf(WeatherData(
         time = LocalDateTime.MIN,
         temp = 0.0,
         humidity = 0.0,
