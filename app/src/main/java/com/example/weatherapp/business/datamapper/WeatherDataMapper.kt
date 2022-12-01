@@ -12,7 +12,7 @@ object WeatherDataMapper : Mapper<WeatherData, WeatherDataDTO> {
         return null
     }
 
-    override fun toModel(source: WeatherDataDTO): WeatherData? {
+    override fun toModel(source: WeatherDataDTO): WeatherData {
         return WeatherData(
             time = LocalDateTime.parse(source.lastUpdated, DateTimeFormatter.ISO_DATE_TIME),
             humidity = source.humidity.toDouble(),
