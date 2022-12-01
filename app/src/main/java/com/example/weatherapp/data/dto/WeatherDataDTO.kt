@@ -14,41 +14,41 @@ data class WeatherDataDTO (
     val tempF: Int,
     @field:Json(name = "is_day")
     val isDay: Int,
-    @Json(name = "condition")
+    @field:Json(name = "condition")
     val condition: ConditionDTO,
-    @Json(name = "wind_mph")
+    @field:Json(name = "wind_mph")
     val windMPH: Int,
-    @Json(name = "wind_kph")
+    @field:Json(name = "wind_kph")
     val windKPH: Int,
-    @Json(name = "wind_degree")
+    @field:Json(name = "wind_degree")
     val windDegree: Int,
-    @Json(name = "wind_dir")
+    @field:Json(name = "wind_dir")
     val windDir: String,
-    @Json(name = "pressure_mb")
+    @field:Json(name = "pressure_mb")
     val pressureMB: Int,
-    @Json(name = "pressure_in")
+    @field:Json(name = "pressure_in")
     val pressureIn: Int,
-    @Json(name = "precip_mm")
+    @field:Json(name = "precip_mm")
     val precipMM: Int,
-    @Json(name = "precip_in")
+    @field:Json(name = "precip_in")
     val precipIN: Int,
-    @Json(name = "humidity")
+    @field:Json(name = "humidity")
     val humidity: Int,
-    @Json(name = "cloud")
+    @field:Json(name = "cloud")
     val cloud: Int,
-    @Json(name = "feelslike_c")
+    @field:Json(name = "feelslike_c")
     val feelsLikeC: Int,
-    @Json(name = "feels_like_f")
+    @field:Json(name = "feels_like_f")
     val feelsLikeF: Int,
-    @Json(name = "vis_km")
+    @field:Json(name = "vis_km")
     val visKM: Int,
-    @Json(name = "vis_miles")
+    @field:Json(name = "vis_miles")
     val visMiles: Int,
-    @Json(name = "uv")
+    @field:Json(name = "uv")
     val uv: Int,
-    @Json(name = "gust_mph")
+    @field:Json(name = "gust_mph")
     val gustMPH: Int,
-    @Json(name = "gust_kph")
+    @field:Json(name = "gust_kph")
     val gustKPH: Int,
 
 )
