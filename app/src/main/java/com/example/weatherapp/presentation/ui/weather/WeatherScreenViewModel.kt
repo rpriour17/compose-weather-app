@@ -21,51 +21,52 @@ class WeatherScreenViewModel @Inject constructor(
 ) : ViewModel() {
 
     var state by mutableStateOf(WeatherData(
-        time = LocalDateTime.MIN,
-        temp = 0.0,
-        humidity = 0.0,
         pressure = 0.0,
-        windSpeed = 0.0,
-        isLoading = false,
-        error = null
         )
     )
+    init {
+        loadWeatherInfo()
+    }
+
 
     //Grabs weather data from api and maps to state
     fun loadWeatherInfo() {
         viewModelScope.launch {
-            state = state.copy(
-                isLoading = true
-            )
-            locationTrackerImpl.getCurrentLocation()?.let { location ->
-                // Latitude,Longitude
-                val param = location.latitude.toString() + "," + location.longitude.toString()
-                val result = repository.getWeatherData(param)
-                when (result) {
+            val result = repository.getWeatherData(52.52, 13.41)
+            when (result) {
                     is Resource.Success -> {
-                        state = state.copy(
-                            time = result.data!!.time,
-                            temp = result.data.temp,
-                            humidity = result.data.humidity,
-                            pressure = result.data.pressure,
-                            windSpeed = result.data.windSpeed,
-                            isLoading = false,
-                            error = null
-                        )
-                    }
-                    is Resource.Error -> {
-                        state= state.copy(
-                            isLoading = false,
-                            error = result.message
-                        )
-                    }
+                    state = state.copy(
+                        pressure = result.data!!.pressure,
+                    )
                 }
-            } ?: kotlin.run {
-                state = state.copy(
-                    isLoading = false,
-                    error = "Couldn't retrieve location"
-                )
+                    is Resource.Error -> {
+                    state= state.copy(
+                        pressure = 50.0
+                    )
+                }
             }
+//            locationTrackerImpl.getCurrentLocation()?.let { location ->
+//                // Latitude,Longitude
+//                val param = location.latitude.toString() + "," + location.longitude.toString()
+//                val result = repository.getWeatherData(param)
+//                when (result) {
+//                    is Resource.Success -> {
+//                        state = state.copy(
+//                            pressure = result.data!!.pressure,
+//                        )
+//                    }
+//                    is Resource.Error -> {
+//                        state= state.copy(
+//                            pressure = 50.0
+//                        )
+//                    }
+//                }
+//            } ?: kotlin.run {
+//                state = state.copy(
+//                    isLoading = false,
+//                    error = "Couldn't retrieve location"
+//                )
+//            }
         }
     }
 

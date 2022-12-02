@@ -14,13 +14,7 @@ object WeatherDataMapper : Mapper<WeatherData, WeatherDataDTO> {
 
     override fun toModel(source: WeatherDataDTO): WeatherData {
         return WeatherData(
-            time = LocalDateTime.parse(source.lastUpdated, DateTimeFormatter.ISO_DATE_TIME),
-            humidity = source.humidity.toDouble(),
-            windSpeed = source.windMPH.toDouble(),
-            pressure = source.pressureIn.toDouble(),
-            temp = source.tempF.toDouble(),
-            isLoading = false,
-            error = null
+            pressure = source.pressures[0],
         )
     }
 }
