@@ -32,7 +32,7 @@ class WeatherScreenViewModel @Inject constructor(
     //Grabs weather data from api and maps to state
     fun loadWeatherInfo() {
         viewModelScope.launch {
-            val result = repository.getWeatherData(52.52, 13.41)
+            val result = repository.getWeatherData("Paris")
             when (result) {
                     is Resource.Success -> {
                     state = state.copy(

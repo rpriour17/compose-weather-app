@@ -6,6 +6,6 @@ import com.example.weatherapp.business.model.WeatherInfo
 
 interface WeatherRepository {
 
-    suspend fun getWeatherData(latitude: Double, longitude: Double) : Resource<WeatherData>
+    suspend fun getWeatherData(q: String) : Resource<WeatherData>
 
 }

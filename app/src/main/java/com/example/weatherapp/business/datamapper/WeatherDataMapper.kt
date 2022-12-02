@@ -14,7 +14,7 @@ object WeatherDataMapper : Mapper<WeatherData, WeatherDataDTO> {
 
     override fun toModel(source: WeatherDataDTO): WeatherData {
         return WeatherData(
-            pressure = source.pressures[0],
+            pressure = source.pressure,
         )
     }
 }
